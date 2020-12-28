@@ -14,7 +14,7 @@
     limitations under the License.
 */
 
-package tfv12
+package tfv14
 
 import (
 	"fmt"
@@ -22,7 +22,7 @@ import (
 	"io/ioutil"
 
 	"github.com/hashicorp/hcl/v2/hclsyntax"
-	hclConfigs "github.com/hashicorp/terraform12/configs"
+	hclConfigs "github.com/hashicorp/terraform/configs"
 	"go.uber.org/zap"
 
 	"github.com/accurics/terrascan/pkg/iac-providers/output"

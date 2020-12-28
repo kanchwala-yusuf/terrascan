@@ -21,7 +21,7 @@ import (
 	"regexp"
 	"strings"
 
-	hclConfigs "github.com/hashicorp/terraform/configs"
+	hclConfigs "github.com/hashicorp/terraform12/configs"
 	"github.com/zclconf/go-cty/cty"
 	"go.uber.org/zap"
 )

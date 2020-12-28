@@ -17,6 +17,7 @@
 package tfv12
 
 import (
+	"github.com/accurics/terrascan/pkg/iac-providers/terraform/commons"
 	"io/ioutil"
 	"reflect"
 	"regexp"
@@ -78,8 +79,8 @@ func (r *RefResolver) ResolveLocalRef(localRef string) interface{} {
 	}
 
 	// extract values from attribute expressions as golang interface{}
-	c := converter{bytes: fileBytes}
-	val, err := c.convertExpression(localAttr.Expr.(hclsyntax.Expression))
+	c := commons.Converter{Bytes: fileBytes}
+	val, err := c.ConvertExpression(localAttr.Expr.(hclsyntax.Expression))
 	if err != nil {
 		zap.S().Errorf("failed to convert expression '%v', ref: '%v'", localAttr.Expr, localRef)
 		return localRef

@@ -17,6 +17,7 @@
 package tfv12
 
 import (
+	"github.com/accurics/terrascan/pkg/iac-providers/terraform/commons"
 	"io/ioutil"
 	"reflect"
 	"regexp"
@@ -141,8 +142,8 @@ func (r *RefResolver) ResolveVarRefFromParentModuleCall(varRef string) interface
 	}
 
 	// extract values from attribute expressions as golang interface{}
-	c := converter{bytes: fileBytes}
-	val, err := c.convertExpression(varAttr.Expr)
+	c := commons.Converter{Bytes: fileBytes}
+	val, err := c.ConvertExpression(varAttr.Expr)
 	if err != nil {
 		zap.S().Errorf("failed to convert expression '%v', ref: '%v'", varAttr.Expr, varRef)
 		return varRef

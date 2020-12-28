@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: myapp
+  name: cluster-a-dev-myapp-pod
+spec:
+  containers:
+  - image: nginx:1.7.9
+    name: nginx
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: myapp
+  name: cluster-a-prod-myapp-pod
+spec:
+  containers:
+  - image: nginx:1.7.9
+    name: nginx
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: myapp
+  name: cluster-a-staging-myapp-pod
+spec:
+  containers:
+  - image: nginx:1.7.9
+    name: nginx

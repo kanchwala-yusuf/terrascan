@@ -18,6 +18,7 @@ package tfv12
 
 import (
 	"fmt"
+	"github.com/accurics/terrascan/pkg/iac-providers/terraform/commons"
 	"os"
 	"path/filepath"
 
@@ -25,7 +26,7 @@ import (
 	"github.com/accurics/terrascan/pkg/utils"
 	version "github.com/hashicorp/go-version"
 	"github.com/hashicorp/hcl/v2"
-	hclConfigs "github.com/hashicorp/terraform/configs"
+	hclConfigs "github.com/hashicorp/terraform12/configs"
 	"github.com/spf13/afero"
 	"go.uber.org/zap"
 )
@@ -152,7 +153,7 @@ func (*TfV12) LoadIacDir(absRootDir string) (allResourcesConfig output.AllResour
 			}
 
 			// resolve references
-			resourceConfig.Config = r.ResolveRefs(resourceConfig.Config.(jsonObj))
+			resourceConfig.Config = r.ResolveRefs(resourceConfig.Config.(commons.jsonObj))
 
 			// source file path
 			resourceConfig.Source, err = filepath.Rel(absRootDir, resourceConfig.Source)

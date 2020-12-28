@@ -17,10 +17,11 @@
 package tfv12
 
 import (
+	"github.com/accurics/terrascan/pkg/iac-providers/terraform/commons"
 	"reflect"
 	"regexp"
 
-	hclConfigs "github.com/hashicorp/terraform/configs"
+	hclConfigs "github.com/hashicorp/terraform12/configs"
 )
 
 var (
@@ -52,7 +53,7 @@ func isRef(val string) bool {
 // ResolveRefs figures out all the variable references in the resource config
 // and tries to replace the variable references, if possible,
 // with actual value
-func (r *RefResolver) ResolveRefs(config jsonObj) jsonObj {
+func (r *RefResolver) ResolveRefs(config commons.JsonObj) commons.JsonObj {
 
 	// iterate over every attribute in the config to resolve references
 	for k, v := range config {
@@ -72,7 +73,7 @@ func (r *RefResolver) ResolveRefs(config jsonObj) jsonObj {
 		case vType == "tfv12.jsonObj" && vKind == reflect.Map:
 
 			// case 2: config value is of type jsonObj
-			config[k] = r.ResolveRefs(v.(jsonObj))
+			config[k] = r.ResolveRefs(v.(commons.JsonObj))
 
 		case vType == "[]interface {}" && vKind == reflect.Slice:
 
@@ -96,7 +97,7 @@ func (r *RefResolver) ResolveRefs(config jsonObj) jsonObj {
 			// case 4: config value is of type []jsonObj
 
 			// type assert interface{} -> []jsonObj
-			sConfig, ok := v.([]jsonObj)
+			sConfig, ok := v.([]commons.JsonObj)
 			if !ok {
 				continue
 			}
