@@ -25,7 +25,7 @@ require (
 	golang.org/x/tools v0.0.0-20201201064407-fd09bd90d85c // indirect
 	gopkg.in/src-d/go-git.v4 v4.13.1
 	gopkg.in/yaml.v3 v3.0.0-20200615113413-eeeca48fe776
-	helm.sh/helm/v3 v3.4.0
+	helm.sh/helm/v3 v3.4.2
 	honnef.co/go/tools v0.0.1-2020.1.6 // indirect
 	sigs.k8s.io/kustomize/api v0.6.5
 )
