@@ -23,7 +23,7 @@ require (
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/onsi/ginkgo v1.12.1
 	github.com/onsi/gomega v1.10.5
-	github.com/open-policy-agent/opa v0.22.0
+	github.com/open-policy-agent/opa v0.27.0
 	github.com/pelletier/go-toml v1.8.1
 	github.com/pkg/errors v0.9.1
 	github.com/spf13/afero v1.5.1
@@ -35,6 +35,6 @@ require (
 	gopkg.in/src-d/go-git.v4 v4.13.1
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
 	helm.sh/helm/v3 v3.4.0
-	honnef.co/go/tools v0.1.1 // indirect
+	honnef.co/go/tools v0.1.2 // indirect
 	sigs.k8s.io/kustomize/api v0.7.2
 )
